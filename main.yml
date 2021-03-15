@@ -1,6 +1,6 @@
 ---
 - name: New Webserver
-  hosts: all
+  hosts: webservers
   become: yes
   handlers:
     - name: restart httpd
@@ -27,4 +27,5 @@
       ansible.posix.firewalld:
         service: http
         permanent: yes
+        immediate: yes
         state: enabled
